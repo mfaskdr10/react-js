@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar React - Chapter 1</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script>
+      // With Vanilla Javascript
+      /** console.log(document);
+
+      const root = document.querySelector("#root");
+      console.log(root);
+
+      const element = document.createElement("h1");
+      console.log(element);
+      element.textContent = "Hello From JS";
+      element.className = "heading-1";
+      element.style.color = "red";
+      element.style.backgroundColor = "black";
+
+      root.appendChild(element); **/
+
+      const root = document.querySelector("#root");
+
+      // With CDN React
+      const elementH1 = React.createElement("h1", {
+        children: "Hello From React!!!!",
+        className: "heading-1",
+      });
+      ReactDOM.render(elementH1, root);
+
+      // Fragment
+      const elementP1 = React.createElement("p", {
+        children: "Paragraph 1",
+      });
+      const elementP2 = React.createElement("p", {
+        children: "Paragraph 2",
+      });
+
+      const elementFragment = React.createElement(React.Fragment, {
+        children: [elementP1, elementP2],
+      });
+      ReactDOM.render(elementFragment, root);
+
+      // Nested Fragment
+      const li = React.createElement("li", {
+        children: "Apple",
+      });
+      const li1 = React.createElement("li", {
+        children: "Grape",
+      });
+      const li2 = React.createElement("li", {
+        children: "Mango",
+      });
+
+      const elementUl = React.createElement(
+        "ul",
+        { className: "list" },
+        React.createElement("li", null, "Apple"),
+        React.createElement("li", null, "Grape"),
+        React.createElement("li", null, "Mango")
+      );
+      ReactDOM.render(elementUl, root);
+
+      ReactDOM.render([elementH1, elementUl], root);
+    </script>
+  </body>
+</html>
